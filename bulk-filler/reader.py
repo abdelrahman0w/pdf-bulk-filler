@@ -33,6 +33,7 @@ class Reader:
                             return self.data
                     header = temp[i] # new header
                     i+=1
+                    
         else:
             wb = openpyxl.load_workbook(self.path)
             sheet = wb.active
