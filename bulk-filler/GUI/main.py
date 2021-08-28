@@ -14,8 +14,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(720, 440)
+        MainWindow.resize(700, 420)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setAutoFillBackground(True)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName("verticalLayout")
@@ -39,7 +40,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(56, 58, 89))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 128))
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.PlaceholderText, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
@@ -81,7 +82,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(56, 58, 89))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 128))
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.PlaceholderText, brush)
         self.frame.setPalette(palette)
@@ -99,13 +100,13 @@ class Ui_MainWindow(object):
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.photo = QtWidgets.QLabel(self.frame)
-        self.photo.setGeometry(QtCore.QRect(300, 40, 61, 61))
+        self.photo.setGeometry(QtCore.QRect(320, 90, 61, 61))
         self.photo.setText("")
         self.photo.setPixmap(QtGui.QPixmap("upload2.png"))
         self.photo.setScaledContents(True)
         self.photo.setObjectName("photo")
         self.button1 = QtWidgets.QPushButton(self.frame)
-        self.button1.setGeometry(QtCore.QRect(220, 120, 221, 61))
+        self.button1.setGeometry(QtCore.QRect(240, 170, 221, 61))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 170, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -186,6 +187,23 @@ class Ui_MainWindow(object):
 "\n"
 "")
         self.button1.setObjectName("button1")
+        self.progressBar = QtWidgets.QProgressBar(self.frame)
+        self.progressBar.setGeometry(QtCore.QRect(70, 270, 551, 31))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.progressBar.setFont(font)
+        self.progressBar.setStyleSheet("QProgressBar{\n"
+"    background-color: rgb(121, 204, 255);\n"
+"    color: rgb(56,58,89);\n"
+"    border-radius: 10px;\n"
+"}\n"
+"QProgressBar::chunk{\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.263682 rgba(73, 237, 255, 255), stop:0.691542 rgba(85, 255, 127, 255));\n"
+"    border-radius: 10px;\n"
+"}")
+        self.progressBar.setProperty("value", 30)
+        self.progressBar.setAlignment(QtCore.Qt.AlignCenter)
+        self.progressBar.setObjectName("progressBar")
         self.verticalLayout.addWidget(self.frame)
         MainWindow.setCentralWidget(self.centralwidget)
 
