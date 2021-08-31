@@ -230,7 +230,7 @@
        <string notr="true">QFrame{
 	background-color: rgb(56, 58, 89);
 	color: rgb(255, 255, 255);
-	border-radius:30px;
+	border-radius:20px;
 }</string>
       </property>
       <property name="frameShape">
